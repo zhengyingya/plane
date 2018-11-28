@@ -34,13 +34,13 @@ cc.Class({
     // onLoad () {},
 
     start () {
-      console.log(this.node.y)
+
     },
 
     update (dt) {
-      this.node.y -= 1
-      if (this.node.y < 0) {
-        var event = new cc.Event.EventCustom('enemy-one-killed', this)
+      this.node.y += 10
+      if (this.node.y > 1400) {
+        var event = new cc.Event.EventCustom('bullet-killed', this)
         event.setUserData(this.node)
         this.node.dispatchEvent(event)
       }
