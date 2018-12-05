@@ -45,4 +45,12 @@ cc.Class({
         this.node.dispatchEvent(event)
       }
     },
+
+    onCollisionEnter (other, self) {
+      if (other.node.name === 'bullet') {
+        var event = new cc.Event.EventCustom('bullet-killed', this)
+        event.setUserData(other.node)
+        this.node.dispatchEvent(event)
+      }
+    }
 });

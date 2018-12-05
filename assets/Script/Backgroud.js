@@ -27,6 +27,8 @@ cc.Class({
 
     onLoad () {
       var self = this
+      var manager = cc.director.getCollisionManager()
+      manager.enabled = true
       cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, function (event){
         switch(event.keyCode) {
           case cc.KEY.j:
@@ -135,6 +137,7 @@ cc.Class({
       this.enemyOnePool.put(event.detail)
     },
     onBulletKilled (event) {
+      console.log(']]]]]]]]]]]]', this.bulletPool.size())
       this.bulletPool.put(event.detail)
     },
 
